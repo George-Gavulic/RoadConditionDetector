@@ -1,12 +1,8 @@
-package edu.oakland.road_condition_detector_built_by_gg_and_jp.ui.theme;
+package edu.oakland.road_condition_detector_built_by_gg_and_jp;
 
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.Switch;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-
-import edu.oakland.road_condition_detector_built_by_gg_and_jp.R;
 
 public class MainActivity extends AppCompatActivity {
     private TextView accelerometerXTextView;

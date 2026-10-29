@@ -12,7 +12,7 @@
         android:id="@+id/appTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ROAD CONDITION DETECTOR"
+        android:text="@string/main_activity_title"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="#333333"
@@ -31,7 +31,7 @@
             android:id="@+id/accelerometerXTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Accelerometer X"
+            android:text="@string/accelerometer_x_text_view"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#2E7D32" />
@@ -39,7 +39,7 @@
             android:id="@+id/accelerometerYTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Accelerometer Y"
+            android:text="@string/accelerometer_y_text_view"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#92990b" />
@@ -47,7 +47,7 @@
             android:id="@+id/accelerometerZTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Accelerometer Z"
+            android:text="@string/accelerometer_z_text_view"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#73170a" />
@@ -67,7 +67,7 @@
             android:id="@+id/latitudeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Latitude"
+            android:text="@string/latitude_text_view"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#2E7D32" />
@@ -75,7 +75,7 @@
             android:id="@+id/longitudeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Longitude"
+            android:text="@string/longitude_text_view"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#92990b" />
@@ -83,7 +83,7 @@
             android:id="@+id/speedTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Speed"
+            android:text="@string/speed_text_view"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#73170a" />
@@ -101,7 +101,7 @@
             android:id="@+id/gyroscopeXTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gyroscope X"
+            android:text="@string/gyroscope_x_text_view"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#2E7D32" />
@@ -109,7 +109,7 @@
             android:id="@+id/gyroscopeYTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gyroscope Y"
+            android:text="@string/gyroscope_y_text_view"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#92990b" />
@@ -117,7 +117,7 @@
             android:id="@+id/gyroscopeZTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gyroscope Z"
+            android:text="@string/gyroscope_z_text_view"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="#73170a" />

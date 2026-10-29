@@ -1,5 +1,12 @@
 <resources>
+    <!-- System -->
     <string name="app_name">Road_Condition_Detector_Built_By_GG_And_JP</string>
+
+    <!-- Main Activity Class -->
+    <string name="accelerometer_not_available">accelerometer is not available on this device</string>
+    <string name="accelerometer_value">%s: %.2f</string>
+
+    <!-- Main Activity Layout -->
     <string name="main_activity_title">ROAD CONDITION DETECTOR</string>
     <string name="accelerometer_x_text_view">Accelerometer X</string>
     <string name="accelerometer_y_text_view">Accelerometer Y</string>
@@ -10,8 +17,4 @@
     <string name="gyroscope_x_text_view">Gyroscope X</string>
     <string name="gyroscope_y_text_view">Gyroscope Y</string>
     <string name="gyroscope_z_text_view">Gyroscope Z</string>
-
-    <string name="accelerometer_not_available">accelerometer is not available on this device</string>
-    <string name="accelerometer_value">%s: %.2f</string>
-
 </resources>

@@ -1,4 +1,4 @@
-package edu.oakland.road_condition_detector_built_by_gg_and_jp;
+package edu.oakland.roadconditiondetector;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;

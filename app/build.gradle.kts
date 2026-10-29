@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "edu.oakland.road_condition_detector_built_by_gg_and_jp"
+    namespace = "edu.oakland.roadconditiondetector"
     compileSdk {
         version = release(36)
     }

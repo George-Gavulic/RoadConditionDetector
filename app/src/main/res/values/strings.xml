@@ -10,4 +10,8 @@
     <string name="gyroscope_x_text_view">Gyroscope X</string>
     <string name="gyroscope_y_text_view">Gyroscope Y</string>
     <string name="gyroscope_z_text_view">Gyroscope Z</string>
+
+    <string name="accelerometer_not_available">accelerometer is not available on this device</string>
+    <string name="accelerometer_value">%s: %.2f</string>
+
 </resources>

@@ -1,4 +1,4 @@
-package edu.oakland.road_condition_detector_built_by_gg_and_jp;
+package edu.oakland.roadconditiondetector;
 
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -7,6 +7,9 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Locale;
+import edu.oakland.road_condition_detector_built_by_gg_and_jp.R;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener{
     private TextView accelerometerXTextView;
@@ -41,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
 
         if (accelerometer ==  null){
-            accelerometerXTextView.setText("accelerometer is not available on this device");
+            accelerometerXTextView.setText(R.string.accelerometer_not_available);
         }
 
 //        xTextView = findViewById(R.id.xTextView);
@@ -73,9 +76,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         float x = event.values[0];
         float y = event.values[1];
         float z = event.values[2];
-        accelerometerXTextView.setText(String.format("X: %.2f", x));
-        accelerometerYTextView.setText(String.format("Y: %.2f", y));
-        accelerometerZTextView.setText(String.format("Z: %.2f", z));
+        accelerometerXTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "X", x));
+        accelerometerYTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "Y", y));
+        accelerometerZTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "Z", z));
+
+
     }
 
     @Override

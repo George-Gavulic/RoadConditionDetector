@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Road_Condition_Detector_Built_By_GG_And_JP</string>
+    <string name="main_activity_title">ROAD CONDITION DETECTOR</string>
+    <string name="accelerometer_x_text_view">Accelerometer X</string>
+    <string name="accelerometer_y_text_view">Accelerometer Y</string>
+    <string name="accelerometer_z_text_view">Accelerometer Z</string>
+    <string name="latitude_text_view">Latitude</string>
+    <string name="longitude_text_view">Longitude</string>
+    <string name="speed_text_view">Speed</string>
+    <string name="gyroscope_x_text_view">Gyroscope X</string>
+    <string name="gyroscope_y_text_view">Gyroscope Y</string>
+    <string name="gyroscope_z_text_view">Gyroscope Z</string>
+
+    <string name="accelerometer_not_available">accelerometer is not available on this device</string>
+    <string name="accelerometer_value">%s: %.2f</string>
+
 </resources>

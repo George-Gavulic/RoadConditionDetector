@@ -9,7 +9,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "edu.oakland.road_condition_detector_built_by_gg_and_jp"
+        applicationId = "edu.oakland.roadconditiondetector"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Locale;
-import edu.oakland.road_condition_detector_built_by_gg_and_jp.R;
+import edu.oakland.roadconditiondetector.R;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener{
     private TextView accelerometerXTextView;

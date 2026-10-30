@@ -37,6 +37,11 @@ public class AccelerometerService extends Service implements EventBus.EventListe
     
     @Override
     public void onEvent(Object event) {
- 
+        /* Example:
+        if (event instanceof NameEvent) {
+            boolean newStatus = controller.update();
+            EventBus.getInstance().post(new UpdateUIEvent(newStatus));
+        }
+         */
     }
 }

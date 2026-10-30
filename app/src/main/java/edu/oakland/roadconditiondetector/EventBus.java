@@ -1,4 +1,4 @@
-package edu.oakland.roadconditiondetector.events;
+package edu.oakland.roadconditiondetector;
 
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;

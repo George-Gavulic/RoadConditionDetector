@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Road_Condition_Detector_Built_By_GG_And_JP"
+rootProject.name = "roadconditiondetector"
 include(":app")
  

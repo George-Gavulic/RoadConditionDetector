@@ -9,7 +9,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Locale;
-import edu.oakland.roadconditiondetector.R;
+
+import edu.oakland.road_condition_detector_built_by_gg_and_jp.R;
+//import edu.oakland.roadconditiondetector.R;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener{
     private TextView accelerometerXTextView;
@@ -23,9 +25,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private TextView gyroscopeYTextView;
     private TextView gyroscopeZTextView;
 
-    SensorManager sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-    Sensor accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-//        Sensor gyroscope = sensorManager.getDefaultSensor(Sensor.Sensor.TYPE_GYROSCOPE);
+    private SensorManager sensorManager;
+    private Sensor accelerometer;
+    // private Sensor gyroscope;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,21 +44,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         this.gyroscopeYTextView = findViewById(R.id.gyroscopeYTextView);
         this.gyroscopeZTextView = findViewById(R.id.gyroscopeZTextView);
 
-
         if (accelerometer ==  null){
-            accelerometerXTextView.setText(R.string.accelerometer_not_available);
+            accelerometerXTextView.setText("accelerometer is not available on this device");
         }
 
-//        xTextView = findViewById(R.id.xTextView);
-//        yTextView = findViewById(R.id.yTextView);
-//        zTextView = findViewById(R.id.zTextView);
-
-
-//        Sensor.TYPE_ACCELEROMETER
-//        Sensor.TYPE_GYROSCOPE
-//        Sensor.TYPE_LIGHT
-//        Sensor.TYPE_PROXIMITY
-//        Sensor.TYPE_MAGNETIC_FIELD
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        if (sensorManager != null) {
+            accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+            // gyroscope = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+        }
     }
 
     @Override

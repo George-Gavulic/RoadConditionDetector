@@ -5,6 +5,8 @@
     <!-- Main Activity Class -->
     <string name="accelerometer_not_available">accelerometer is not available on this device</string>
     <string name="accelerometer_value">%s: %.2f</string>
+<!--    TODO: Maybe add Gyro not avail-->
+    <string name="gyroscope_value">%s: %.2f</string>
 
     <!-- Main Activity Layout -->
     <string name="main_activity_title">ROAD CONDITION DETECTOR</string>

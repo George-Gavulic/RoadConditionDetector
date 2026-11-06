@@ -17,6 +17,8 @@ import java.util.Locale;
 import edu.oakland.roadconditiondetector.R;
 import edu.oakland.roadconditiondetector.accelerometer.AccelerometerDataEvent;
 import edu.oakland.roadconditiondetector.accelerometer.AccelerometerService;
+import edu.oakland.roadconditiondetector.gyroscope.GyroscopeDataEvent;
+import edu.oakland.roadconditiondetector.gyroscope.GyroscopeService;
 
 public class MainActivity extends AppCompatActivity implements EventBus.EventListener{
     private TextView accelerometerXTextView;
@@ -51,8 +53,11 @@ public class MainActivity extends AppCompatActivity implements EventBus.EventLis
 
         Log.d("created main","1");
         //Start the background service so it begins collecting sensor data
-        Intent serviceIntent = new Intent(this, AccelerometerService.class);
-        startService(serviceIntent);
+
+        Intent accelerometerServiceIntent = new Intent(this, AccelerometerService.class);
+        Intent gyroscopeServiceIntent = new Intent(this, GyroscopeService.class);
+        startService(accelerometerServiceIntent);
+        startService(gyroscopeServiceIntent);
 
     }
 
@@ -86,6 +91,13 @@ public class MainActivity extends AppCompatActivity implements EventBus.EventLis
             accelerometerXTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "X", data.getX()));
             accelerometerYTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "Y", data.getY()));
             accelerometerZTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "Z", data.getZ()));
+        }
+
+        if (event instanceof GyroscopeDataEvent) {
+            GyroscopeDataEvent data = (GyroscopeDataEvent) event;
+            gyroscopeXTextView.setText(String.format(Locale.US, getString(R.string.gyroscope_value), "X", data.getX()));
+            gyroscopeYTextView.setText(String.format(Locale.US, getString(R.string.gyroscope_value), "Y", data.getY()));
+            gyroscopeZTextView.setText(String.format(Locale.US, getString(R.string.gyroscope_value), "Z", data.getZ()));
         }
 
     }

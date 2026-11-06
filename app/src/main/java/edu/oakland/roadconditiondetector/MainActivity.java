@@ -12,9 +12,12 @@ import android.util.Log;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.github.mikephil.charting.charts.LineChart;
+
 import java.util.Locale;
 
 import edu.oakland.roadconditiondetector.R;
+import edu.oakland.roadconditiondetector.UI.SensorGraphManager;
 import edu.oakland.roadconditiondetector.accelerometer.AccelerometerDataEvent;
 import edu.oakland.roadconditiondetector.accelerometer.AccelerometerService;
 import edu.oakland.roadconditiondetector.gyroscope.GyroscopeDataEvent;
@@ -32,9 +35,7 @@ public class MainActivity extends AppCompatActivity implements EventBus.EventLis
     private TextView gyroscopeYTextView;
     private TextView gyroscopeZTextView;
 
-//    private SensorManager sensorManager;
-//    private Sensor accelerometer; //moved to the controller
-    // private Sensor gyroscope;
+    private SensorGraphManager graphManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +52,13 @@ public class MainActivity extends AppCompatActivity implements EventBus.EventLis
         this.gyroscopeYTextView = findViewById(R.id.gyroscopeYTextView);
         this.gyroscopeZTextView = findViewById(R.id.gyroscopeZTextView);
 
-        Log.d("created main","1");
-        //Start the background service so it begins collecting sensor data
+        // Initialize UI graph manager; it automatically listens to the EventBus
+        LineChart chartAccel = findViewById(R.id.chartAccel);
+        LineChart chartGyro = findViewById(R.id.chartGyro);
+        LineChart chartGps = findViewById(R.id.chartGps);
+        graphManager = new SensorGraphManager(chartAccel, chartGyro, chartGps);
 
+        //Start the background service so it begins collecting sensor data
         Intent accelerometerServiceIntent = new Intent(this, AccelerometerService.class);
         Intent gyroscopeServiceIntent = new Intent(this, GyroscopeService.class);
         startService(accelerometerServiceIntent);
@@ -84,6 +89,12 @@ public class MainActivity extends AppCompatActivity implements EventBus.EventLis
         // Unregister when the Activity goes to the background to prevent memory leaks
         EventBus.getInstance().unregister(this);
     }
+
+    @Override
+    protected void onDestroy() {
+        graphManager.unregister();
+        super.onDestroy();
+    }
     @Override
     public void onEvent(Object event) {
         if (event instanceof AccelerometerDataEvent) {
@@ -91,9 +102,7 @@ public class MainActivity extends AppCompatActivity implements EventBus.EventLis
             accelerometerXTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "X", data.getX()));
             accelerometerYTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "Y", data.getY()));
             accelerometerZTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "Z", data.getZ()));
-        }
-
-        if (event instanceof GyroscopeDataEvent) {
+        } else if (event instanceof GyroscopeDataEvent) {
             GyroscopeDataEvent data = (GyroscopeDataEvent) event;
             gyroscopeXTextView.setText(String.format(Locale.US, getString(R.string.gyroscope_value), "X", data.getX()));
             gyroscopeYTextView.setText(String.format(Locale.US, getString(R.string.gyroscope_value), "Y", data.getY()));
@@ -101,11 +110,4 @@ public class MainActivity extends AppCompatActivity implements EventBus.EventLis
         }
 
     }
-
-    //TODO: Update these when we hear back from the a subscribed event listener
-//    accelerometerXTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "X", x));
-//    accelerometerYTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "Y", y));
-//    accelerometerZTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "Z", z));
-
-
 }

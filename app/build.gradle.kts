@@ -36,6 +36,8 @@ android {
 dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0") // needed for SensorGraphManager
+    //This Repo ^^^ is also implemented through the settings.gradle.kts
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

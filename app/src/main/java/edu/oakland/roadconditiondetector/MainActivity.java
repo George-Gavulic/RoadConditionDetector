@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements EventBus.EventLis
         this.gyroscopeYTextView = findViewById(R.id.gyroscopeYTextView);
         this.gyroscopeZTextView = findViewById(R.id.gyroscopeZTextView);
 
-
+        Log.d("created main","1");
         //Start the background service so it begins collecting sensor data
         Intent serviceIntent = new Intent(this, AccelerometerService.class);
         startService(serviceIntent);
@@ -81,21 +81,13 @@ public class MainActivity extends AppCompatActivity implements EventBus.EventLis
     }
     @Override
     public void onEvent(Object event) {
-        // 4. Check if the incoming event is your AccelerometerDataEvent
         if (event instanceof AccelerometerDataEvent) {
             AccelerometerDataEvent data = (AccelerometerDataEvent) event;
-
-        accelerometerXTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "X", data.getX()));
-        accelerometerYTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "Y", data.getY()));
-        accelerometerZTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "Z", data.getZ()));
-
-
-//            Update the UI safely on the Main (UI) Thread
-//            runOnUiThread(() -> {
-
-//            });
-//            });
+            accelerometerXTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "X", data.getX()));
+            accelerometerYTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "Y", data.getY()));
+            accelerometerZTextView.setText(String.format(Locale.US, getString(R.string.accelerometer_value), "Z", data.getZ()));
         }
+
     }
 
     //TODO: Update these when we hear back from the a subscribed event listener

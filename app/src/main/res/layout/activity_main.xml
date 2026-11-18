@@ -1,199 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
-    android:gravity="center_horizontal"
-    android:background="#F5F6F8">
-
-    <!-- App Title Header -->
-    <TextView
-        android:id="@+id/appTitleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/main_activity_title"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="#333333"
-        android:layout_marginBottom="24dp" />
+    android:background="#F5F6F8"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:weightSum="2"
-        android:background="@android:drawable/dialog_holo_light_frame"
-        android:padding="16dp"
-        android:layout_marginBottom="16dp">
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal"
+        android:background="#F5F6F8">
+
+        <!-- App Title Header -->
+        <TextView
+            android:id="@+id/appTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_title"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Accelerometer row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1.1"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/accelerometerXTextView"
-                android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:weightSum="2"
+            android:background="@android:drawable/dialog_holo_light_frame"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/accelerometer_x_text_view"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#2E7D32" />
-            <TextView
-                android:id="@+id/accelerometerYTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/accelerometer_y_text_view"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#92990b" />
-            <TextView
-                android:id="@+id/accelerometerZTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/accelerometer_z_text_view"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#73170a" />
+                android:layout_weight="0.7"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/accelerometerXTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/accelerometer_x_text_view"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#2E7D32" />
+                <TextView
+                    android:id="@+id/accelerometerYTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/accelerometer_y_text_view"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#92990b" />
+                <TextView
+                    android:id="@+id/accelerometerZTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/accelerometer_z_text_view"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#73170a" />
 
+            </LinearLayout>
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chartAccel"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1.3" />
         </LinearLayout>
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/chartAccel"
-            android:layout_width="match_parent"
-            android:layout_weight="0.90"
-            android:layout_height="match_parent">
-        </com.github.mikephil.charting.charts.LineChart>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:weightSum="2"
-        android:background="@android:drawable/dialog_holo_light_frame"
-        android:padding="16dp"
-        android:layout_marginBottom="16dp">
+        <!-- GPS row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1.1"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/latitudeTextView"
-                android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:weightSum="2"
+            android:background="@android:drawable/dialog_holo_light_frame"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/latitude_text_view"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#2E7D32" />
-            <TextView
-                android:id="@+id/longitudeTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/longitude_text_view"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#92990b" />
-            <TextView
-                android:id="@+id/speedTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/speed_text_view"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#73170a" />
+                android:layout_weight="0.7"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/latitudeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/latitude_text_view"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#2E7D32" />
+                <TextView
+                    android:id="@+id/longitudeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/longitude_text_view"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#92990b" />
+                <TextView
+                    android:id="@+id/speedTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/speed_text_view"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#73170a" />
+            </LinearLayout>
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chartGps"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1.3" />
         </LinearLayout>
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/chartGyro"
-            android:layout_width="match_parent"
-            android:layout_weight="0.90"
-            android:layout_height="match_parent">
-        </com.github.mikephil.charting.charts.LineChart>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:weightSum="2"
-        android:background="@android:drawable/dialog_holo_light_frame"
-        android:padding="16dp"
-        android:layout_marginBottom="16dp">
+        <!-- Gyroscope row -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1.1"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/gyroscopeXTextView"
-                android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:weightSum="2"
+            android:background="@android:drawable/dialog_holo_light_frame"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/gyroscope_x_text_view"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#2E7D32" />
-            <TextView
-                android:id="@+id/gyroscopeYTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/gyroscope_y_text_view"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#92990b" />
-            <TextView
-                android:id="@+id/gyroscopeZTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/gyroscope_z_text_view"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="#73170a" />
+                android:layout_weight="0.7"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/gyroscopeXTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gyroscope_x_text_view"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#2E7D32" />
+                <TextView
+                    android:id="@+id/gyroscopeYTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gyroscope_y_text_view"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#92990b" />
+                <TextView
+                    android:id="@+id/gyroscopeZTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/gyroscope_z_text_view"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#73170a" />
+            </LinearLayout>
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chartGyro"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1.3" />
         </LinearLayout>
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/chartGps"
-            android:layout_width="match_parent"
-            android:layout_weight="0.90"
-            android:layout_height="match_parent">
-        </com.github.mikephil.charting.charts.LineChart>
+
+        <!--    <LinearLayout-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="90dp"-->
+        <!--        android:gravity="center"-->
+        <!--        android:orientation="horizontal"-->
+        <!--        android:paddingLeft="24dp"-->
+        <!--        android:paddingRight="24dp"-->
+        <!--        android:weightSum="2">-->
+
+        <!--        <Button-->
+        <!--            android:id="@+id/ChangeThisIDOne"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:layout_marginEnd="8dp"-->
+        <!--            android:layout_weight="1.25"-->
+        <!--            android:backgroundTint="#616161"-->
+        <!--            android:text="TempButtonOne"-->
+        <!--            android:textColor="#FFFFFF"-->
+        <!--            android:textSize="14sp"-->
+        <!--            android:textStyle="bold" />-->
+
+        <!--        &lt;!&ndash; Gas Pedal (Increase Speed) &ndash;&gt;-->
+        <!--        <Button-->
+        <!--            android:id="@+id/ChangeThisIDTwo"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:layout_marginStart="8dp"-->
+        <!--            android:layout_weight="0.75"-->
+        <!--            android:backgroundTint="#424242"-->
+        <!--            android:text="TempButtonTwo"-->
+        <!--            android:textColor="#FFFFFF"-->
+        <!--            android:textSize="14sp"-->
+        <!--            android:textStyle="bold" />-->
+        <!--    </LinearLayout>-->
+
     </LinearLayout>
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="90dp"-->
-<!--        android:gravity="center"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:paddingLeft="24dp"-->
-<!--        android:paddingRight="24dp"-->
-<!--        android:weightSum="2">-->
-
-<!--        <Button-->
-<!--            android:id="@+id/ChangeThisIDOne"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_marginEnd="8dp"-->
-<!--            android:layout_weight="1.25"-->
-<!--            android:backgroundTint="#616161"-->
-<!--            android:text="TempButtonOne"-->
-<!--            android:textColor="#FFFFFF"-->
-<!--            android:textSize="14sp"-->
-<!--            android:textStyle="bold" />-->
-
-<!--        &lt;!&ndash; Gas Pedal (Increase Speed) &ndash;&gt;-->
-<!--        <Button-->
-<!--            android:id="@+id/ChangeThisIDTwo"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_marginStart="8dp"-->
-<!--            android:layout_weight="0.75"-->
-<!--            android:backgroundTint="#424242"-->
-<!--            android:text="TempButtonTwo"-->
-<!--            android:textColor="#FFFFFF"-->
-<!--            android:textSize="14sp"-->
-<!--            android:textStyle="bold" />-->
-<!--    </LinearLayout>-->
-
-</LinearLayout>
+</ScrollView>
